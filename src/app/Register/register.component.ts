@@ -4,14 +4,11 @@ import {IStudents} from './register.model';
 
 @Component({
   selector: 'section',
-  template: `
-    <div>
-      <h2>Register</h2>
-      
-    </div>
-  `,
-  styles: []
+  templateUrl: './register.component.html',
+  styleUrls: ['register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  hide = true;
+  ngOnInit(){}
 
 }

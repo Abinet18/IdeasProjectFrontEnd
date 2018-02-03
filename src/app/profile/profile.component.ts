@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs/Rx";
 import { DbService } from './../db.service';
-import { IStudents } from '../students/students.model';
+//import { IStudents } from '../students/students.model';
 
 @Component({
   selector: 'app-profile',
@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
   
   
   id: number;
-  student: IStudents;
+ // student: IStudents;
   studentid: number;
   private subscription: Subscription;
 
@@ -37,7 +37,7 @@ export class ProfileComponent implements OnInit {
       (param: any) => this.id = param['id']
     );
     this.studentid = activatedRoute.snapshot.params['id'];
-    this.student = this.studentService.getStudentById(this.studentid);
+   // this.student = this.studentService.getStudentById(this.studentid);
     
   }
 

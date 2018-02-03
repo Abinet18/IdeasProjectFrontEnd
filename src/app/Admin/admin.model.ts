@@ -1,7 +1,8 @@
-export interface IStudents {
-    _id: number;
-    name: string;
-    stuId: number;
-    email: string;
-    img: string;
+export interface Element {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
 }
+
+

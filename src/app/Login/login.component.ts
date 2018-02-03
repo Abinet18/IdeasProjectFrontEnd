@@ -4,14 +4,10 @@ import {IStudents} from './login.model';
 
 @Component({
   selector: 'section',
-  template: `
-    <div>
-      <h2>Login</h2>
-     
-    </div>
-  `,
-  styles: []
+  templateUrl: './login.component.html',
+  styleUrls: ['login.component.css']
 })
 export class LoginComponent implements OnInit {
 
+  ngOnInit(){}
 }

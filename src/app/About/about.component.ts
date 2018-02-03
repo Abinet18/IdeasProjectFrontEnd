@@ -14,6 +14,6 @@ import {IStudents} from './about.model';
 })
 export class AboutComponent implements OnInit {
 
-  
+  ngOnInit(){}
 
 }
