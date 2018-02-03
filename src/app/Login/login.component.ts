@@ -14,4 +14,5 @@ import {IStudents} from './login.model';
 })
 export class LoginComponent implements OnInit {
 
+  ngOnInit(){}
 }

@@ -14,5 +14,6 @@ import {IStudents} from './admin.model';
 })
 export class AdminComponent implements OnInit {
 
+  ngOnInit(){}
 
 }

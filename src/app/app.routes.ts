@@ -9,6 +9,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginComponent } from './Login/login.component';
 import { RegisterComponent } from './Register/register.component';
 import { AdminComponent } from './Admin/admin.component';
+import { IdeaComponent } from './idea/idea.component';
 
 const MY_ROUTES: Routes = [
 
@@ -19,6 +20,7 @@ const MY_ROUTES: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'admin', component: AdminComponent},
     {path: 'notfound', component: NotfoundComponent},
+    {path : 'idea', component:IdeaComponent},
     {path: '**', redirectTo: '/' },
 ];
 

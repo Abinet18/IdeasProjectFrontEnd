@@ -14,4 +14,6 @@ import {IStudents} from './register.model';
 })
 export class RegisterComponent implements OnInit {
 
+  ngOnInit(){}
+
 }

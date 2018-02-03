@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { MaterialModule } from './material.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -13,8 +15,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './Register/register.component';
 import { AdminComponent } from './Admin/admin.component';
 
+
 import { MyCanActivateGuard } from "./profile/mycanactivate.guard";
 import { NotfoundComponent } from './notfound/notfound.component';
+import { IdeaComponent } from './idea/idea.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +31,13 @@ import { NotfoundComponent } from './notfound/notfound.component';
     LoginComponent,
     RegisterComponent,
     AdminComponent,
+    IdeaComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MaterialModule,
     myRoutes
   ],
   providers: [DbService, MyCanActivateGuard],
