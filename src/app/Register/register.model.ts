@@ -1,7 +1,7 @@
 export interface IStudents {
-    _id: number;
+    _id: string;
     name: string;
-    stuId: number;
+    stuId: string;
     email: string;
     img: string;
 }

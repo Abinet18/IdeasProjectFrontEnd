@@ -14,16 +14,16 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(){}
 
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns = ['position', 'name', 'weight'];
   dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
 
 }
 
 
 const ELEMENT_DATA: Element[] = [
-  {position: "Brian Okuku", name: 'Agriculture app', weight: 1.0079},
-  {position: "Kin Jon Un", name: 'Rocket to space', weight: 4.0026},
-  {position: "Anna Louis", name: 'Time travel', weight: 6.941},
+  {position: "Brian Okuku", name: 'Agriculture app', weight: "Some words"},
+  {position: "Kin Jon Un", name: 'Rocket to space', weight: "Some words"},
+  {position: "Anna Louis", name: 'Time travel', weight: "Some words"},
   
 ];
 
