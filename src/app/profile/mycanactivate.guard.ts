@@ -13,12 +13,7 @@ export class MyCanActivateGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
 
     let id:any = state.url.split("/").pop();
-    
-    if(this.studentService.getStudentById(id) ===undefined) {
-      this.router.navigate(['notfound']);
-    }
-
-    return true;
+  return true;
   }
 } 
 

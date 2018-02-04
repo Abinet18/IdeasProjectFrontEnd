@@ -1,67 +1,27 @@
 
 <div class="wrapper">
 <h3>Fill in the fields below in order to sign up</h3>
-
 <div class="example-container">
+   <form [formGroup]='regForm' (ngSubmit)=onSubmit()> 
     <mat-form-field>
-      <input matInput placeholder="Name">
-    </mat-form-field>
-    <br/>
+      <input matInput placeholder="User Name" formControlName="username" name="username" >
+      <mat-error *ngIf="!regForm.controls.username.valid">Invalid username</mat-error>
+     </mat-form-field>    
     <mat-form-field>
-        <input matInput placeholder="Username">
-      </mat-form-field>
-      <br/>
-      <mat-form-field>
-        <input matInput type="password" placeholder="Password">
-      </mat-form-field>
-      <br/>
-      <mat-form-field>
-        <input matInput type="password" placeholder="Confirm password">
-      </mat-form-field>
-      <br/>
-      
+            <input matInput placeholder="Email" formControlName="email" name="email" >
+            <mat-error *ngIf="!regForm.controls.email.valid">Invalid Email</mat-error>
+   </mat-form-field>
+   <mat-form-field>
+      <input matInput placeholder="Password" formControlName="password" name="password" >
+      <mat-error *ngIf="!regForm.controls.password.valid">Invalid password</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput placeholder="Confirm Password" formControlName="confirmpassword" name="confirmpassword" >
+      <mat-error *ngIf="!regForm.controls.confirmpassword.valid">Passwords dont match</mat-error>
+  </mat-form-field>
+         
       <button mat-button>Sign Up!</button>
-  </div>
-</div>
-
-<!--
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <div formGroupName="userData">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text"
-               class="form-control"
-               id="username"
-               formControlName="username">
-        <div *ngIf="!myForm.controls['userData'].controls['username'].valid">
-             Required
-        </div>
-      </div>
-  
-      <div class="form-group">
-          <label for="email">E-Mail</label>
-          <input type="text"
-                 class="form-control"
-                 id="email"
-                 formControlName="email">
-          <div *ngIf="!myForm.controls['userData'].controls['email'].valid">
-            Required
-          </div>
-        </div>
-  
-      <div class="form-group">
-        <label for="username">Post</label>
-        <textarea cols="30" rows="10"
-               formControlName="post"></textarea>
-        <div *ngIf="!myForm.controls['userData'].controls['post'].valid">
-             Minimum length of 10 
-        </div>
-      </div>
-  
+      </form>
     </div>
     
-    <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
-    <button type="button" class="btn btn-primary" (click)="makeRequest()">Get Data</button>
-    <div *ngIf="loading">Loading...</div>
-  </form>
--->
+</div>

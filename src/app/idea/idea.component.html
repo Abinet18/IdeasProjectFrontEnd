@@ -1,18 +1,20 @@
-<mat-card class="example-card">
-  
+   <form [formGroup]='ideaForm' (ngSubmit)=onSubmit()> 
    <mat-form-field>
-     <input matInput placeholder="Title">
+     <input matInput placeholder="Title" formControlName="title" name="title" >
+     <mat-error *ngIf="!ideaForm.controls.title.valid">Invalid title</mat-error>
+     <p>{{ ideaForm.controls.title.value | uppercase }}</p>
    </mat-form-field>
    <mat-form-field>
-     <mat-select placeholder="Select type">
+     <mat-select placeholder="Select type" name="ideatype" formControlName="type">
        <mat-option value="Software">Software</mat-option>
        <mat-option value="Business">Business</mat-option>
        <mat-option value="Life related">Life related</mat-option>       
      </mat-select>
    </mat-form-field>
    <mat-form-field>
-      <textarea rows=6 matInput placeholder="Type Your idea here"></textarea>
+      <textarea rows=6 matInput placeholder="Type Your idea here" name="ideatext" formControlName="idea"></textarea>
    </mat-form-field>
-   <button mat-button>Submit</button>
+   <button mat-button [disabled]="!ideaForm.valid">Submit</button>
+  </form>
   
   

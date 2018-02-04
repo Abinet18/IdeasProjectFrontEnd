@@ -25,7 +25,7 @@ export class MostPopularComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.students = this.studentService.getData();
+   // this.students = this.studentService.getData();
   }
 
 }

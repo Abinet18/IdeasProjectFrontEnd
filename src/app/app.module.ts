@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material.module';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -38,6 +40,9 @@ import { IdeaComponent } from './idea/idea.component';
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     myRoutes
   ],
   providers: [DbService, MyCanActivateGuard],
