@@ -12,6 +12,5 @@ export class RegisterComponent implements OnInit {
   hide = true;
   ngOnInit(){}
 
-  ngOnInit(){}
 
 }
