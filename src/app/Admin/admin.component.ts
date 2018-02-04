@@ -13,9 +13,12 @@ import { MatTableDataSource } from '@angular/material';
 export class AdminComponent implements OnInit {
 
   ngOnInit(){}
+<<<<<<< HEAD
 
   displayedColumns = ['position', 'name', 'weight'];
   dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
+=======
+>>>>>>> 8e471910708852b9129c0a280dd957c9223e5944
 
 }
 
