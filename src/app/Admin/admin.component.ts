@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DbService } from './../db.service';
-import {Element} from './admin.model';
 import { MatTableDataSource } from '@angular/material';
 
 @Component({
@@ -12,19 +11,38 @@ import { MatTableDataSource } from '@angular/material';
 
 export class AdminComponent implements OnInit {
 
-  ngOnInit(){}
+   blogPosts;
 
-  displayedColumns = ['position', 'name', 'weight'];
-  dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
+  constructor(private data:DbService) { }
 
+   getUnApprovedIdeas(){
+    this.data.getUnApprovedIdeas().subscribe( data => {
+      this.blogPosts = data;
+      console.log(this.blogPosts);
+    });    
+  }
+
+  ngOnInit() {
+    this.getUnApprovedIdeas();
+  } 
+
+  Approve(ideaId)
+  {
+    console.log(ideaId);
+    this.data.approve(ideaId).subscribe( data => {
+     console.log("Approved");
+    });    
+  }
+  Delete(ideaId)
+  {
+    console.log(ideaId);
+    this.data.delete(ideaId).subscribe( data => {
+    console.log("Deleted");
+  });
+
+}
 }
 
 
-const ELEMENT_DATA: Element[] = [
-  {position: "Brian Okuku", name: 'Agriculture app', weight: "Some words"},
-  {position: "Kin Jon Un", name: 'Rocket to space', weight: "Some words"},
-  {position: "Anna Louis", name: 'Time travel', weight: "Some words"},
-  
-];
 
 

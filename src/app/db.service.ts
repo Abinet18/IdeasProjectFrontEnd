@@ -7,7 +7,7 @@ import { tokenNotExpired } from 'angular2-jwt';
 @Injectable()
 export class DbService {
   token;
-  user;
+  username;
   message:string;
   messageClass:string;
   private base_url:string="http://localhost:8000/";
@@ -21,9 +21,10 @@ export class DbService {
   storeUserData(token,user)
   {
     localStorage.setItem('token',token);
-    localStorage.setItem('user',user);
+    localStorage.setItem('username',user.username);
+    localStorage.setItem('admin',user.admin);
     this.token=token;
-    this.user=user;
+    this.username=user.username;
   }
   login(user):Observable<any> {
     return this.http.post( this.base_url+'users/login', user);
@@ -35,20 +36,45 @@ export class DbService {
   }
   logout() {
     this.token = null; // Set token to null
-    this.user = null; // Set user to null
+    this.username = null; // Set user to null
     this.message="You have logged out";
     this.messageClass="alert alert-warning";
     localStorage.clear(); // Clear local storage
   }
-
+  getUser()
+  {
+    this.username=localStorage.getItem('username');
+    return this.username;
+  }
+  isAdmin()
+  {
+    return localStorage.getItem('admin')>"0"?true:false;
+  }
   addIdea(theIdea):Observable<any>
   {
    return this.http.post('http://localhost:8000/idea',theIdea);
   }
-
+ 
   getAllIdeas():Observable<any>{
     //console.log(this.http.get('http://localhost:8000/idea'));
     return this.http.get('http://localhost:8000/idea');
   }
 
+  getApprovedIdeas():Observable<any>{
+    //console.log(this.http.get('http://localhost:8000/idea'));
+    return this.http.get('http://localhost:8000/idea/approved');
+  }
+  
+  getUnApprovedIdeas():Observable<any>{
+    //console.log(this.http.get('http://localhost:8000/idea'));
+    return this.http.get('http://localhost:8000/idea/needapproval');
+  }
+  approve(ideaId:string):Observable<any>{
+    
+    return this.http.put('http://localhost:8000/idea/approve/'+ideaId,true);
+  }
+  delete(ideaId:string):Observable<any>{
+    
+    return this.http.delete('http://localhost:8000/idea/delete/'+ideaId);
+  }
 }

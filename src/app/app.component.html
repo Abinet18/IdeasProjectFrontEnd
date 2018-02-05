@@ -6,7 +6,7 @@
             <button mat-button><a [routerLink]="['about']">About</a></button>
             <button *ngIf="!data.loggedIn()" mat-button><a [routerLink]="['register']">Register</a></button>
             <button *ngIf="!data.loggedIn()" mat-button><a [routerLink]="['login']">Login</a></button>
-            <button *ngIf="data.loggedIn()" mat-button><a [routerLink]="['admin']">Admin Panel</a></button>
+            <button *ngIf="data.loggedIn() && data.isAdmin()" mat-button><a [routerLink]="['admin']">Admin Panel</a></button>
             <button *ngIf="data.loggedIn()"mat-button><a [routerLink]="['idea']">Got an  Idea</a></button>
             <button *ngIf="data.loggedIn()" mat-button (click)="logout()">Logout</button>
     </mat-nav-list>

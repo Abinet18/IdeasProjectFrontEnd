@@ -30,8 +30,10 @@ export class IdeaComponent implements OnInit {
   {
     let theIdea={title:this.ideaForm.controls.title.value, 
                 type:this.ideaForm.controls.type.value,
-                idea:this.ideaForm.controls.idea.value};
-
+                idea:this.ideaForm.controls.idea.value,
+                owner:this.data.username
+              };
+    console.log(theIdea);
     this.data.addIdea(theIdea).subscribe(
       (data)=>{ console.log(data);});
       

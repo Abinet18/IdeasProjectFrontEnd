@@ -1,19 +1,14 @@
-<<<<<<< HEAD
         <div class={{data.messageClass}} *ngIf="data.message"><p>{{data.message}}</p></div>
-=======
-<<<<<<< HEAD
+
         <mat-card *ngFor="let blog of blogPosts">
             <h2>{{blog.title}}</h2>
             <h3>{{blog.type}}</h3>
-=======
-        <div class="data.messageClass" *ngIf="data.message"><p>{{data.message}}</p></div>
->>>>>>> cb1e92507f44d5784c63bec43753328066feaa8f
-        <mat-card>
-            <h2>Idea Title</h2>
-            <h3>Posted by Idea Generator</h3>
->>>>>>> dfbff196764da2a45fcc6dda7d9c62705420c9da
+            <h3>Posted by {{blog.owner}}</h3>
+       
+        <mat-card style="background-color:antiquewhite">
             <p>
                 {{blog.idea}}
             </p>
             
         </mat-card>
+    </mat-card>
