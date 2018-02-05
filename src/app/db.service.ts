@@ -46,6 +46,10 @@ export class DbService {
     this.username=localStorage.getItem('username');
     return this.username;
   }
+  getToken()
+  {
+    return localStorage.getItem('token');
+  }
   isAdmin()
   {
     return localStorage.getItem('admin')>"0"?true:false;

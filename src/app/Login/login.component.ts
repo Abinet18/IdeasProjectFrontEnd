@@ -37,7 +37,11 @@ export class LoginComponent implements OnInit {
     let user={username:this.loginForm.controls.username.value,password:this.loginForm.controls.password.value};
     this.data.login(user).subscribe(
       (res)=>{
-        if(res.success)
+        if(res==null)
+        {
+          console.log("Http Error occured");
+        }
+        else if(res.success)
         {
         console.log(res);
         this.data.storeUserData(res.token,res.user);
