@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { DbService } from '../db.service';
+
 @Component({
   selector: 'app-idea',
   templateUrl: './idea.component.html',
@@ -10,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class IdeaComponent implements OnInit {
 
   ideaForm:FormGroup;
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder, private data:DbService) { 
     this.ideaForm=fb.group({
       'title':['',Validators.required],
       'type':['',Validators.required],
@@ -19,13 +21,21 @@ export class IdeaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ideaForm.statusChanges.subscribe(
+    /*this.ideaForm.statusChanges.subscribe(
       data=>{console.log(data);}
-    );
+    );*/
   }
-  onSubmit(form)
+
+  onSubmit()
   {
-    console.log(this.ideaForm.controls.title.value);
+    let theIdea={title:this.ideaForm.controls.title.value, 
+                type:this.ideaForm.controls.type.value,
+                idea:this.ideaForm.controls.idea.value};
+
+    this.data.addIdea(theIdea).subscribe(
+      (data)=>{ console.log(data);});
+      
+    //console.log(theIdea);
   }
 
 }

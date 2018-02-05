@@ -1,24 +1,8 @@
-        <mat-card>
-            <h2>Idea Title</h2>
-            <h3>Posted by Idea Generator</h3>
+        <mat-card *ngFor="let blog of blogPosts">
+            <h2>{{blog.title}}</h2>
+            <h3>{{blog.type}}</h3>
             <p>
-                Here is my idea, Hope you like it
+                {{blog.idea}}
             </p>
             
         </mat-card>
-        <mat-card>
-       
-                    <h2>Idea Title</h2>
-                    <h3>Posted by Idea Generator</h3>
-                    <p>
-                        Here is my idea, Hope you like it
-                    </p>
-        </mat-card>
-        <mat-card>
-        
-                            <h2>Idea Title</h2>
-                            <h3>Posted by Idea Generator</h3>
-                            <p>
-                                Here is my idea, Hope you like it
-                            </p>
-      </mat-card>

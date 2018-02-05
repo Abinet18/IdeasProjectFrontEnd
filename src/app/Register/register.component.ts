@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
   onSubmit()
   {
     let user={username:this.regForm.controls.username.value,email:this.regForm.controls.email.value,password:this.regForm.controls.password.value};
+    
     this.data.addUser(user).subscribe(
       (data)=>{console.log(data);});
     console.log(user);

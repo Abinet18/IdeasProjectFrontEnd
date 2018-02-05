@@ -1,3 +1,5 @@
+   
+<div class="wrapper">
    <form [formGroup]='ideaForm' (ngSubmit)=onSubmit()> 
    <mat-form-field>
      <input matInput placeholder="Title" formControlName="title" name="title" >
@@ -16,5 +18,5 @@
    </mat-form-field>
    <button mat-button [disabled]="!ideaForm.valid">Submit</button>
   </form>
-  
+</div>
   
