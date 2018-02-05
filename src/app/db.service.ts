@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { tokenNotExpired } from 'angular2-jwt';
 
+
 @Injectable()
 export class DbService {
   token;
@@ -38,6 +39,16 @@ export class DbService {
     this.message="You have logged out";
     this.messageClass="alert alert-warning";
     localStorage.clear(); // Clear local storage
+  }
+
+  addIdea(theIdea):Observable<any>
+  {
+   return this.http.post('http://localhost:8000/idea',theIdea);
+  }
+
+  getAllIdeas():Observable<any>{
+    //console.log(this.http.get('http://localhost:8000/idea'));
+    return this.http.get('http://localhost:8000/idea');
   }
 
 }
