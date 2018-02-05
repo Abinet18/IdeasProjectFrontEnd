@@ -17,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './Register/register.component';
 import { AdminComponent } from './Admin/admin.component';
 
+import { AuthGuard } from './guards/auth.guard';
 
 import { MyCanActivateGuard } from "./profile/mycanactivate.guard";
 import { NotfoundComponent } from './notfound/notfound.component';
@@ -45,7 +46,7 @@ import { IdeaComponent } from './idea/idea.component';
     HttpClientModule,
     myRoutes
   ],
-  providers: [DbService, MyCanActivateGuard],
+  providers: [DbService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

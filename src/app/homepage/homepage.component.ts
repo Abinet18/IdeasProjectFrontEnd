@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DbService } from '../db.service';
 
 @Component({
   selector: 'homepage',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class HomepageComponent implements OnInit {
-
-  constructor() { }
+  message:string;
+  constructor(private data:DbService) { }
 
   ngOnInit() {
+    this.message=this.data.message;
   }
 
 }
