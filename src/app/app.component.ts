@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { DbService } from './db.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  message:string;
+  constructor(private data:DbService,private router:Router)
+  {
+
+  }
+  logout()
+  {
+    this.data.logout();   
+    this.router.navigate(['/']);
+    //this.data.message=null;
+  }
 }

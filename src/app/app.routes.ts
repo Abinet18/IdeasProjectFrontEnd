@@ -10,6 +10,7 @@ import { LoginComponent } from './Login/login.component';
 import { RegisterComponent } from './Register/register.component';
 import { AdminComponent } from './Admin/admin.component';
 import { IdeaComponent } from './idea/idea.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const MY_ROUTES: Routes = [
 
@@ -18,9 +19,9 @@ const MY_ROUTES: Routes = [
     {path: 'about', component: AboutComponent},
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
-    {path: 'admin', component: AdminComponent},
+    {path: 'admin', component: AdminComponent,canActivate:[AuthGuard]},
     {path: 'notfound', component: NotfoundComponent},
-    {path : 'idea', component:IdeaComponent},
+    {path : 'idea', component:IdeaComponent,canActivate:[AuthGuard]},
     {path: '**', redirectTo: '/' },
 ];
 

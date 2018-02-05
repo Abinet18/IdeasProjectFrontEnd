@@ -1,14 +1,17 @@
 <div class="wrapper">
     <h2>Login</h2>
     <div class="example-container">
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
         <mat-form-field>
-            <input matInput placeholder="Username">
-          </mat-form-field>
-          <br/>
-          <mat-form-field>
-            <input matInput type="password" placeholder="Password">
-          </mat-form-field>
-          <br/>
-          <button mat-button>Log in</button>
+                <input matInput placeholder="User Name" formControlName="username" name="username" >
+                <mat-error *ngIf="!loginForm.controls.username.valid">Invalid username</mat-error>
+        </mat-form-field>    
+        <mat-form-field>
+                <input matInput placeholder="Password" formControlName="password" name="password" >
+                <mat-error *ngIf="!loginForm.controls.password.valid">Invalid password</mat-error>
+        </mat-form-field>
+        <mat-error *ngIf="message">{{message}}</mat-error>
+         <button mat-button>Log in</button>
+        </form>
       </div>
 </div>
