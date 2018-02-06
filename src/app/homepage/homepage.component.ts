@@ -54,6 +54,7 @@ export class HomepageComponent implements OnInit {
   showMore(idea)
   {
     this.data.selectedIdea=idea;
+    console.log(idea);
     this.data.storeIdeaId(idea._id);
     this.router.navigate(['/selectedIdea']);
   }

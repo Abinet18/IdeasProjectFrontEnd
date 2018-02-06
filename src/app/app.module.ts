@@ -28,6 +28,8 @@ import { IdeaComponent } from './idea/idea.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ThanksComponent } from './thanks/thanks.component';
 import { SelectedIdeaComponent } from './selected-idea/selected-idea.component';
+import { MostdiscussedComponent } from './mostdiscussed/mostdiscussed.component';
+import { YourideasComponent } from './yourideas/yourideas.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { SelectedIdeaComponent } from './selected-idea/selected-idea.component';
     WelcomeComponent,
     ThanksComponent,
     SelectedIdeaComponent,
+    MostdiscussedComponent,
+    YourideasComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,8 +7,9 @@
             <p>
                 {{idea.idea}}
             </p>            
-            <p *ngIf="idea.total" class="align-right">Rating : {{idea.total}} Stars</p>
-            <form class="align-right" *ngIf="data.loggedIn()" [formGroup]="ratingForm" (ngSubmit)="onRating(idea._id)">
+            <p *ngIf="idea.total>0" class="align-right">Rating : {{idea.total/idea.rateCount}} Stars</p>
+            <p *ngIf="idea.owner!=data.getUser() && getYourRating()" class="align-right">You gave this Idea {{getYourRating()}} stars rating</p>
+            <form class="align-right" *ngIf="data.loggedIn() && !getYourRating() && idea.owner!=data.getUser()" [formGroup]="ratingForm" (ngSubmit)="onRating(idea._id)">
             <mat-radio-group formControlName="rating">
             <mat-radio-button  *ngFor="let i of stars" name="rating" value={{i}}>{{i}}&nbsp;&nbsp;&nbsp;&nbsp;</mat-radio-button>
             </mat-radio-group>

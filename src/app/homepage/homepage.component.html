@@ -10,6 +10,7 @@
             <p *ngIf="blog.total" class="align-right">Rating : {{blog.total}} Stars</p>
             <button matButton (click)="showMore(blog)">More</button>
             <hr>
+            <p *ngIf="blog.commentCount">{{blog.commentCount}} thoughts given</p>
            </mat-card>
                 <mat-card class="comment" *ngFor="let thought of blog.thoughts | slice:0:3" >
                 <strong>Thought given by {{thought.owner}} on {{thought.dateofth | date}}</strong><br>

@@ -42,6 +42,7 @@ export class SelectedIdeaComponent implements OnInit {
   ngOnInit() {
     this.stars=[1,2,3,4,5];
     this.idea=this.data.selectedIdea; 
+<<<<<<< HEAD
 
     this.data.getImg().subscribe( data => {
       this.img = data;
@@ -49,6 +50,12 @@ export class SelectedIdeaComponent implements OnInit {
     });
 
     this.reload();   
+=======
+    if(!this.idea)
+    {
+    this.reload();
+    }   
+>>>>>>> 1e5cfb5af13685d6d644f78e80f4b59ea2aa5b5d
      }
 
   onSubmit(theId){
@@ -108,6 +115,7 @@ export class SelectedIdeaComponent implements OnInit {
      this.idea=res;   
    });
  }
+<<<<<<< HEAD
 
  deleteComment(theId, commmentOwner, theText, theDate)
  {
@@ -120,4 +128,18 @@ export class SelectedIdeaComponent implements OnInit {
     });
 
 }
+=======
+ getYourRating()
+ {
+   let ratings=this.idea.ratings;
+   for(let rating of ratings)
+   {
+     if(rating.rater==this.data.getUser())
+     {
+       return rating.rating;
+     }
+   }
+   return null;
+ }
+>>>>>>> 1e5cfb5af13685d6d644f78e80f4b59ea2aa5b5d
 }
