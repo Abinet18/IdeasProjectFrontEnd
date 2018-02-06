@@ -1,31 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { DbService } from './../db.service';
-import {IStudents} from './popular.model';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'section',
-  template: `
-    <div>
-      <h2>Most Popular posts</h2>
-      <ul class="list-group">
-        <li *ngFor="let st of students" class="list-group-item">
-          <a [routerLink]="['profile', st.stuId]" >List of Popular posts<!--{{st.name}}--></a>
-        </li>
-      </ul>
-    </div>
-  `,
-  styles: []
+  templateUrl: './popular.component.html',
+  styleUrls: ['./popular.component.css']
 })
 export class MostPopularComponent implements OnInit {
 
-  students:Array<IStudents> = [];
+  blogPosts;
 
-  constructor(private studentService: DbService) {
+  constructor(private data:DbService) { }
 
-  }
-
+   getPopularIdeas()
+  {
+      this.data.getPopularIdeas().subscribe(
+        (res)=>{
+          this.blogPosts=res;
+        }
+      );
+   }
   ngOnInit() {
-   // this.students = this.studentService.getData();
-  }
+    this.getPopularIdeas();
+  } 
 
 }

@@ -3,6 +3,7 @@ import { FormGroup,FormControl, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { DbService } from '../db.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-idea',
@@ -12,7 +13,7 @@ import { DbService } from '../db.service';
 export class IdeaComponent implements OnInit {
 
   ideaForm:FormGroup;
-  constructor(private fb:FormBuilder, private data:DbService) { 
+  constructor(private fb:FormBuilder, private data:DbService,private router:Router) { 
     this.ideaForm=fb.group({
       'title':['',Validators.required],
       'type':['',Validators.required],
@@ -35,7 +36,10 @@ export class IdeaComponent implements OnInit {
               };
     console.log(theIdea);
     this.data.addIdea(theIdea).subscribe(
-      (data)=>{ console.log(data);});
+      (res)=>{
+         console.log(res);
+         this.router.navigate(['/thanks']);
+      });
       
     //console.log(theIdea);
   }

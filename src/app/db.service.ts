@@ -75,10 +75,14 @@ export class DbService {
   }
   approve(ideaId:string):Observable<any>{
     
-    return this.http.put('http://localhost:8000/idea/approve/'+ideaId,true);
+    return this.http.put('http://localhost:8000/idea/approve/'+ideaId,{});
   }
   delete(ideaId:string):Observable<any>{
     
     return this.http.delete('http://localhost:8000/idea/delete/'+ideaId);
+  }
+  getPopularIdeas():Observable<any>{
+    
+    return this.http.get('http://localhost:8000/idea/popular');
   }
 }

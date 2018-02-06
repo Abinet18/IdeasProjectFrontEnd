@@ -11,6 +11,8 @@ import { RegisterComponent } from './Register/register.component';
 import { AdminComponent } from './Admin/admin.component';
 import { IdeaComponent } from './idea/idea.component';
 import { AuthGuard } from './guards/auth.guard';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { ThanksComponent } from './thanks/thanks.component';
 
 const MY_ROUTES: Routes = [
 
@@ -18,6 +20,8 @@ const MY_ROUTES: Routes = [
     {path: 'popular', component: MostPopularComponent},
     {path: 'about', component: AboutComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'welcome', component:WelcomeComponent},
+    {path: 'thanks', component:ThanksComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'admin', component: AdminComponent,canActivate:[AuthGuard]},
     {path: 'notfound', component: NotfoundComponent},
