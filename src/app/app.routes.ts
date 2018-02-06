@@ -21,7 +21,6 @@ const MY_ROUTES: Routes = [
 
     {path: '', component: HomepageComponent},
     {path: 'popular', component: MostPopularComponent},
-    {path: 'about', component: AboutComponent},
     {path: 'login', component: LoginComponent},
     {path: 'welcome', component:WelcomeComponent},
     {path: 'thanks', component:ThanksComponent},

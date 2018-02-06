@@ -12,3 +12,15 @@
  </mat-card>
             
 </mat-card>
+
+<hr/>
+
+<mat-card *ngFor="let user of theUsers"> 
+    <mat-card style="background-color:antiquewhite">
+        <p>
+            {{user.username}} 
+        </p>
+        <button matButton *ngIf="user.admin==null" (click)="makeAdmin(user.username)">Make admin</button>
+     </mat-card>
+                
+    </mat-card>
