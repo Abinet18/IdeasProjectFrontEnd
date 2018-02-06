@@ -4,8 +4,6 @@ import { FormGroup,FormControl, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
-//import {HttpClient, Response, RequestOptions, Headers} from '@angular/common/http';
-
 @Component({
   selector: 'section',
   templateUrl: './register.component.html',

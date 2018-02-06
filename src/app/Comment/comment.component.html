@@ -1,0 +1,13 @@
+
+    <h3>Add comment below</h3>
+    <div class="example-container">
+       <form [formGroup]='regForm' (ngSubmit)=onSubmit()> 
+        <mat-form-field>
+          <input matInput placeholder="Comment" formControlName="comment" name="comment" >
+          <mat-error *ngIf="!regForm.controls.comment.valid">Must be at least 5 characters</mat-error>
+         </mat-form-field>    
+          <button mat-button>Add comment</button>
+          </form>
+        </div>
+        
+   

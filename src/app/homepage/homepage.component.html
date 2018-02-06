@@ -9,6 +9,37 @@
             <p>
                 {{blog.idea}}
             </p>
+            <hr/>
             
         </mat-card>
+        <div *ngIf="data.loggedIn()" style="margin-top:10px;">
+                <!--<comment-section></comment-section>-->
+               <h6>Add comment below</h6>
+               <div class="example-container">
+                   <form [formGroup]='commentForm' (ngSubmit)="onSubmit(blog._id)"> 
+                        <input matInput placeholder="Comment" formControlName="comment" name="comment">
+                        <button mat-button>Add comment</button>
+                   </form>
+               </div>
+           </div>
+        <div>
+                <mat-list>
+                    <div *ngFor="let thought of blog.thoughts | slice:0:5; let i=index">
+                        <mat-list-item>
+                            <div class="details">{{thought.owner | uppercase}}<br/>
+                                <span>{{thought.dateofth | date}}</span><br/>
+                            </div> 
+                            <div class="comment">
+                                {{thought.text}}
+                                <div class="delete_option" *ngIf="(thought.owner)=='brian okuku'">
+                                    <button (click)="deleteComment(blog._id, i, thought.text)" mat-button>Delete comment</button>
+                                </div>
+                            </div>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                    </div>
+                </mat-list> 
+             
+        </div>
     </mat-card>
+   

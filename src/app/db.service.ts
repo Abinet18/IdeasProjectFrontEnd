@@ -14,6 +14,10 @@ export class DbService {
   redirectUrl:string;
   constructor(private http:HttpClient) {}
   
+  addComment(comment):Observable<any>
+  {
+   return this.http.post(this.base_url+'idea/comment',comment);
+  }
   addUser(user):Observable<any>
   {
    return this.http.post(this.base_url+'users/add',user);
@@ -80,5 +84,10 @@ export class DbService {
   delete(ideaId:string):Observable<any>{
     
     return this.http.delete('http://localhost:8000/idea/delete/'+ideaId);
+  }
+  deleteComment(commentDetails):Observable<any>
+  {
+  console.log(commentDetails);
+   return this.http.put(this.base_url+'idea/deletecomment',commentDetails);
   }
 }
