@@ -18,3 +18,13 @@ mat-card
 {
   background-color: rgb(250, 232, 211);
 }
+
+.delete{
+  float:right;
+  background-color: #f44336;
+  color:#fff;
+}
+
+.exists{
+  color:#990000;
+}

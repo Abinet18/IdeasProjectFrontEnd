@@ -18,6 +18,10 @@ export class SelectedIdeaComponent implements OnInit {
   commentForm;
   idea;
   stars;
+  feedback;
+  feedback2;
+  img;
+  
   constructor(private data:DbService,fb:FormBuilder) { 
 
     this.ratingForm=fb.group(
@@ -31,22 +35,50 @@ export class SelectedIdeaComponent implements OnInit {
       }
     );
 
+    this.feedback = 0;
+    this.feedback2 = 0;
   }
 
   ngOnInit() {
     this.stars=[1,2,3,4,5];
     this.idea=this.data.selectedIdea; 
+
+    this.data.getImg().subscribe( data => {
+      this.img = data;
+      console.log(this.img);
+    });
+
     this.reload();   
      }
+
   onSubmit(theId){
     let theComment={comment: this.commentForm.controls.comment.value,
       ideaId: theId,
       ownerUsername:this.data.getUser() };
-    
+
+    //Check if this idea array already has the comment
+    let commentsArray = this.idea.thoughts;
+    for (let commentIndex of commentsArray) {
+        if((commentIndex.owner==this.data.getUser())&&(commentIndex.text==this.commentForm.controls.comment.value)){
+          console.log('Already here');
+          this.feedback = 1;
+          return false;
+        } 
+    }
+
+    if(this.commentForm.controls.comment.value==''){
+      console.log("Empty");
+      this.feedback2 = 1;
+      return false;
+    }
+
     this.data.addComment(theComment).subscribe(
-      (data)=>{/*console.log(data);*/
-       this.reload();
+      (data)=>{//console.log(data);
+        this.feedback = 0;
+        this.feedback2 = 0;
+        this.reload();
   });
+ 
 
   }
   onRating(theId)
@@ -76,4 +108,16 @@ export class SelectedIdeaComponent implements OnInit {
      this.idea=res;   
    });
  }
+
+ deleteComment(theId, commmentOwner, theText, theDate)
+ {
+  let theCommentToDelete={ideaId: theId, owner: commmentOwner,
+   thoughtText: theText, commentDate: theDate};
+  
+  this.data.deleteComment(theCommentToDelete).subscribe(
+    (data)=>{/*console.log(data);*/
+      this.reload();
+    });
+
+}
 }
