@@ -12,7 +12,6 @@ import { StarRatingModule } from 'angular-star-rating';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { MostPopularComponent } from './MostPopular/popular.component';
-import { AboutComponent } from './About/about.component';
 import { LoginComponent } from './Login/login.component';
 import { DbService } from './db.service';
 import { myRoutes } from './app.routes';
@@ -38,7 +37,6 @@ import { YourideasComponent } from './yourideas/yourideas.component';
     MostPopularComponent,
     ProfileComponent,
     NotfoundComponent,
-    AboutComponent,
     LoginComponent,
     RegisterComponent,
     AdminComponent,

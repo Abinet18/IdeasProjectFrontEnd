@@ -13,6 +13,7 @@ export class AdminComponent implements OnInit {
    private actionClass;
    private action=null;
    blogPosts;
+   theUsers;
 
   constructor(private data:DbService) { }
 
@@ -23,8 +24,16 @@ export class AdminComponent implements OnInit {
     });    
   }
 
+  getUnApprovedUsers(){
+    this.data.getUnApprovedUsers().subscribe( data => {
+      this.theUsers = data;
+      console.log(this.theUsers);
+    });    
+  }
+
   ngOnInit() {
     this.getUnApprovedIdeas();
+    this.getUnApprovedUsers();
   } 
 
   Approve(ideaId)
@@ -48,6 +57,17 @@ export class AdminComponent implements OnInit {
   });
 
 }
+
+makeAdmin(theUser)
+  {
+    this.data.makeAdmin(theUser).subscribe( res => {
+     console.log("Approved");
+     this.actionClass="alert alert-info";
+     this.action="Approval";
+     this.getUnApprovedIdeas();
+    });    
+  }
+
 }
 
 

@@ -98,6 +98,14 @@ export class DbService {
     
     return this.http.put('http://localhost:8000/idea/approve/'+ideaId,{});
   }
+  getUnApprovedUsers():Observable<any>{
+
+    return this.http.get('http://localhost:8000/users/getusers');
+  }
+  makeAdmin(theUsername:string):Observable<any>{
+    
+    return this.http.put('http://localhost:8000/users/makeadmin/'+theUsername,{});
+  }
   delete(ideaId:string):Observable<any>{
     
     return this.http.delete('http://localhost:8000/idea/delete/'+ideaId);

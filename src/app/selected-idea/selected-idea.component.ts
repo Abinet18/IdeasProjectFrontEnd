@@ -53,6 +53,7 @@ export class SelectedIdeaComponent implements OnInit {
     this.reload();
     }   
     }
+  
 
   onSubmit(theId){
     let theComment={comment: this.commentForm.controls.comment.value,
