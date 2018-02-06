@@ -32,7 +32,7 @@
                             <div class="comment">
                                 {{thought.text}}
                                 <div class="delete_option" *ngIf="(thought.owner)=='brian okuku'">
-                                    <button (click)="deleteComment(blog._id, i, thought.text)" mat-button>Delete comment</button>
+                                    <button (click)="deleteComment(blog._id, i, thought.text, )" mat-button>Delete comment</button>
                                 </div>
                             </div>
                         </mat-list-item>
