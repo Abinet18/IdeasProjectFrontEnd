@@ -36,7 +36,10 @@ export class SelectedIdeaComponent implements OnInit {
   ngOnInit() {
     this.stars=[1,2,3,4,5];
     this.idea=this.data.selectedIdea; 
-    this.reload();   
+    if(!this.idea)
+    {
+    this.reload();
+    }   
      }
   onSubmit(theId){
     let theComment={comment: this.commentForm.controls.comment.value,
@@ -75,5 +78,17 @@ export class SelectedIdeaComponent implements OnInit {
      console.log(res);
      this.idea=res;   
    });
+ }
+ getYourRating()
+ {
+   let ratings=this.idea.ratings;
+   for(let rating of ratings)
+   {
+     if(rating.rater==this.data.getUser())
+     {
+       return rating.rating;
+     }
+   }
+   return null;
  }
 }

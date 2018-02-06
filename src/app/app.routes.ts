@@ -14,6 +14,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ThanksComponent } from './thanks/thanks.component';
 import { SelectedIdeaComponent } from './selected-idea/selected-idea.component';
+import { MostdiscussedComponent } from './mostdiscussed/mostdiscussed.component';
+import { YourideasComponent } from './yourideas/yourideas.component';
 
 const MY_ROUTES: Routes = [
 
@@ -23,7 +25,9 @@ const MY_ROUTES: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'welcome', component:WelcomeComponent},
     {path: 'thanks', component:ThanksComponent},
-    {path: 'selectedIdea',component:SelectedIdeaComponent},   
+    {path: 'selectedIdea',component:SelectedIdeaComponent},  
+    {path:'mostdiscussed',component:MostdiscussedComponent}, 
+    {path:'yourideas',component:YourideasComponent}, 
     {path: 'register', component: RegisterComponent},
     {path: 'admin', component: AdminComponent,canActivate:[AuthGuard]},
     {path: 'notfound', component: NotfoundComponent},
