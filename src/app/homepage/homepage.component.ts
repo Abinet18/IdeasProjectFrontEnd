@@ -16,13 +16,10 @@ import { Router } from '@angular/router';
 
 export class HomepageComponent implements OnInit {
   blogPosts;
-<<<<<<< HEAD
   home;
   searchForm;
   
   
-=======
->>>>>>> 6f509812f0efdeb7d0d8e1608a54721969a73f25
 
   constructor(private fb:FormBuilder, private data:DbService,private router:Router) {
    this.home=true;

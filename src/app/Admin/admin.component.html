@@ -18,10 +18,11 @@
 
 <mat-card *ngFor="let user of theUsers"> 
     <mat-card style="background-color:antiquewhite">
-        <p>
+        <p style="font-weight:bold;text-transform:uppercase;">
             {{user.username}} 
         </p>
         <button matButton *ngIf="user.admin==null" (click)="makeAdmin(user.username)">Make admin</button>
+        <div style="width:100%;background:#f0f0f0;color:#000;padding:3px;border:1px solid #ccc;" *ngIf="user.admin==true">Administrator</div>
      </mat-card>
                 
     </mat-card>
