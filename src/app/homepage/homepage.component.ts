@@ -10,16 +10,23 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'homepage',
-  templateUrl: './homepage.component.html',
+    templateUrl: './homepage.component.html',
   styleUrls: ['homepage.component.css']
 })
 
 export class HomepageComponent implements OnInit {
   blogPosts;
+  home;
+  searchForm;
   
   
 
   constructor(private fb:FormBuilder, private data:DbService,private router:Router) {
+   this.home=true;
+   this.searchForm=this.fb.group({
+     'type':['',Validators.required],
+     'title':['',Validators.required]
+   })
     
    }
 
@@ -44,15 +51,16 @@ export class HomepageComponent implements OnInit {
     this.getApprovedIdeas();
   }
   
-  // onSubmit(theId){
-  //   let theComment={comment: this.commentForm.controls.comment.value,
-  //     ideaId: theId,
-  //     ownerUsername:this.data.getUser() };
-    
-  //   this.data.addComment(theComment).subscribe(
-  //     (data)=>{/*console.log(data);*/});
-
-  // }
+  search()
+  {
+      let type=this.searchForm.controls.type.value;
+      let title=this.searchForm.controls.title.value;
+      this.data.searchForIdeas(type,title).subscribe(
+        (res)=>{
+          this.blogPosts=res;
+        }
+      )
+  }
   showMore(idea)
   {
     this.data.selectedIdea=idea;
