@@ -82,7 +82,9 @@ export class DbService {
     //console.log(this.http.get('http://localhost:8000/idea'));
     return this.http.get('http://localhost:8000/idea');
   }
-
+  getImg():Observable<any>{
+    return this.http.get('http://localhost:8000/idea/image');
+  }
   getApprovedIdeas():Observable<any>{
     //console.log(this.http.get('http://localhost:8000/idea'));
     return this.http.get('http://localhost:8000/idea/approved');

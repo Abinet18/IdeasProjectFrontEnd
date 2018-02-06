@@ -29,7 +29,7 @@
             <hr>
             <p *ngIf="blog.commentCount">{{blog.commentCount}} thoughts given</p>
            </mat-card>
-                <mat-card class="comment" *ngFor="let thought of blog.thoughts | slice:0:5" >
+                <mat-card class="comment" *ngFor="let thought of blog.thoughts | slice:0:3" >
                 <strong>Thought given by {{thought.owner}} on {{thought.dateofth | date}}</strong><br>
                 <em>{{thought.text}}</em>
             </mat-card>   

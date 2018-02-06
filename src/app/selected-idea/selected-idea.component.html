@@ -1,4 +1,5 @@
 <div class={{data.messageClass}} *ngIf="data.message"><p>{{data.message}}</p></div>
+
 <mat-card >
             <strong style="font-size:20px">{{idea.title}}</strong>({{idea.type}})
             <br><em>Posted by {{idea.owner}} on {{idea.dateCreated | date}} </em> 
@@ -19,9 +20,12 @@
               <mat-form-field><textarea rows=4 matInput placeholder="Comment" formControlName="comment" name="comment"></textarea></mat-form-field>
               <button type="submit" matButton>Add comment</button>
           </form>
+          <div class="exists" *ngIf="feedback>0">The comment already exists</div>
+          <div class="exists" *ngIf="feedback2>0">Comment is empty</div>
     </mat-card>
-      <mat-card class="comment" *ngFor="let thought of idea.thoughts | slice:0:5" >
+      <mat-card class="comment" *ngFor="let thought of idea.thoughts" >
       <strong>Thought given by {{thought.owner}} on {{thought.dateofth | date}}</strong><br>
       <em>{{thought.text}}</em>
+      <button *ngIf="(thought.owner==data.getUser())" matButton class="delete" (click)="deleteComment(idea._id, thought.owner, thought.text, thought.dateofth)">Delete</button>
   </mat-card>   
 </mat-card>
