@@ -6,24 +6,25 @@
                     <mat-option value="Software">Software</mat-option>
                     <mat-option value="Business">Business</mat-option>
                     <mat-option value="Life Related">Life Related</mat-option>
-                </mat-select>     
-                <mat-error *ngIf="!searchForm.controls.type.valid">Required</mat-error>           
+                </mat-select>                     
                  </mat-form-field>
                  <mat-form-field>
-                <input matInput placeholder="Search for Title" formControlName="title">
-                <mat-error *ngIf="!searchForm.controls.title.valid">Required</mat-error>  
+                <input matInput placeholder="Search for Title" formControlName="title">               
                  </mat-form-field>
-                <button matButton [disabled]="!searchForm.valid">Search</button>
+                 <mat-form-field>
+                    <input matInput placeholder="Contributor Id" formControlName="owner">               
+                    </mat-form-field>
+                <button matButton >Search</button>
             </form>
         </mat-card>
-        <mat-card *ngFor="let blog of blogPosts">
+          <mat-card *ngFor="let blog of blogPosts">
             <strong style="font-size:20px">{{blog.title}}</strong>({{blog.type}})
             <br><em>Posted by {{blog.owner}} on {{blog.dateCreated | date}} </em> 
            <mat-card class="idea">
             <p>
                 {{blog.idea}}
             </p>
-            
+            <p *ngIf="!blog.dateApproved" class="align-center warning">Waiting for Approval</p>
             <p *ngIf="blog.total" class="align-right">Rating : {{blog.total}} Stars</p>
             <button matButton (click)="showMore(blog)">More</button>
             <hr>

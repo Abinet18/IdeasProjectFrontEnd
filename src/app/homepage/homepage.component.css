@@ -14,5 +14,14 @@ mat-card
 {
   background-color: rgb(250, 232, 211);
 }
+.warning
+{
+  background-color:red;
+  color:wheat;
+}
+.align-center
+{
+  text-align:center;
+}
 
 

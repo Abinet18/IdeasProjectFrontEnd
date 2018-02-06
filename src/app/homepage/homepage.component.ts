@@ -16,19 +16,17 @@ import { Router } from '@angular/router';
 
 export class HomepageComponent implements OnInit {
   blogPosts;
-<<<<<<< HEAD
   home;
   searchForm;
   
   
-=======
->>>>>>> 6f509812f0efdeb7d0d8e1608a54721969a73f25
 
   constructor(private fb:FormBuilder, private data:DbService,private router:Router) {
    this.home=true;
    this.searchForm=this.fb.group({
-     'type':['',Validators.required],
-     'title':['',Validators.required]
+     'type':[''],
+     'title':[''],
+     'owner':['']
    })
     
    }
@@ -57,8 +55,12 @@ export class HomepageComponent implements OnInit {
   search()
   {
       let type=this.searchForm.controls.type.value;
+      type=type?type:0;
       let title=this.searchForm.controls.title.value;
-      this.data.searchForIdeas(type,title).subscribe(
+      title=title?title:0;
+      let owner=this.searchForm.controls.owner.value;
+      owner=owner?owner:0;
+      this.data.searchForIdeas(type,title,owner).subscribe(
         (res)=>{
           this.blogPosts=res;
         }
@@ -71,7 +73,4 @@ export class HomepageComponent implements OnInit {
     this.data.storeIdeaId(idea._id);
     this.router.navigate(['/selectedIdea']);
   }
-
- 
-
 }
