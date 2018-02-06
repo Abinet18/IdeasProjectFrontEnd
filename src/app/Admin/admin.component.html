@@ -1,5 +1,6 @@
 <div class={{data.messageClass}} *ngIf="data.message"><p>{{data.message}}</p></div>
 <div class={{actionClass}} *ngIf="action">{{action}} successful</div>
+
 <mat-card *ngFor="let blog of blogPosts">
     <strong style="font-size:20px">{{blog.title}}</strong>({{blog.type}})
     <br><em>Posted by {{blog.owner}} on {{blog.dateCreated | date}} </em> 

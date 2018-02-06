@@ -1,4 +1,21 @@
         <div class={{data.messageClass}} *ngIf="data.message"><p>{{data.message}}</p></div>
+
+        <mat-card *ngIf="home">
+            <form [formGroup]="searchForm" (ngSubmit)="search()">
+                <mat-form-field><mat-select  placeholder="Search Category" formControlName="type">
+                    <mat-option value="Software">Software</mat-option>
+                    <mat-option value="Business">Business</mat-option>
+                    <mat-option value="Life Related">Life Related</mat-option>
+                </mat-select>     
+                <mat-error *ngIf="!searchForm.controls.type.valid">Required</mat-error>           
+                 </mat-form-field>
+                 <mat-form-field>
+                <input matInput placeholder="Search for Title" formControlName="title">
+                <mat-error *ngIf="!searchForm.controls.title.valid">Required</mat-error>  
+                 </mat-form-field>
+                <button matButton [disabled]="!searchForm.valid">Search</button>
+            </form>
+        </mat-card>
         <mat-card *ngFor="let blog of blogPosts">
             <strong style="font-size:20px">{{blog.title}}</strong>({{blog.type}})
             <br><em>Posted by {{blog.owner}} on {{blog.dateCreated | date}} </em> 

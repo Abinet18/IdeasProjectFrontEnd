@@ -127,4 +127,8 @@ export class DbService {
     
     return this.http.get('http://localhost:8000/idea/yourideas/'+this.getUser());
   }
+  searchForIdeas(type,title):Observable<any>{
+    
+    return this.http.get('http://localhost:8000/idea/searchideas/'+type+"/"+title);
+  }
 }
