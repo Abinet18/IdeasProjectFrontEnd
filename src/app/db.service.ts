@@ -12,11 +12,16 @@ export class DbService {
   messageClass:string;
   private base_url:string="http://localhost:8000/";
   redirectUrl:string;
+  selectedIdea;
   constructor(private http:HttpClient) {}
   
   addComment(comment):Observable<any>
   {
    return this.http.post(this.base_url+'idea/comment',comment);
+  }
+  addRating(ideaId,rating):Observable<any>
+  {
+   return this.http.post(this.base_url+'idea/rating/'+ideaId,rating);
   }
   addUser(user):Observable<any>
   {
@@ -29,6 +34,14 @@ export class DbService {
     localStorage.setItem('admin',user.admin);
     this.token=token;
     this.username=user.username;
+  }
+  storeIdeaId(ideaId)
+  {
+    localStorage.setItem('idea_id',ideaId);
+  }
+  getIdeaId()
+  {
+    return localStorage.getItem("idea_id");
   }
   login(user):Observable<any> {
     return this.http.post( this.base_url+'users/login', user);
@@ -62,7 +75,9 @@ export class DbService {
   {
    return this.http.post('http://localhost:8000/idea',theIdea);
   }
- 
+  getIdea(ideaId):Observable<any>{
+       return this.http.get('http://localhost:8000/idea/getIdea/'+ideaId);
+  }
   getAllIdeas():Observable<any>{
     //console.log(this.http.get('http://localhost:8000/idea'));
     return this.http.get('http://localhost:8000/idea');

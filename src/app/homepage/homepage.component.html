@@ -1,45 +1,19 @@
         <div class={{data.messageClass}} *ngIf="data.message"><p>{{data.message}}</p></div>
-
         <mat-card *ngFor="let blog of blogPosts">
-            <h2>{{blog.title}}</h2>
-            <h3>{{blog.type}}</h3>
-            <h3>Posted by {{blog.owner}}</h3>
-       
-        <mat-card style="background-color:antiquewhite">
+            <strong style="font-size:20px">{{blog.title}}</strong>({{blog.type}})
+            <br><em>Posted by {{blog.owner}} on {{blog.dateCreated | date}} </em> 
+           <mat-card class="idea">
             <p>
                 {{blog.idea}}
             </p>
-            <hr/>
             
-        </mat-card>
-        <div *ngIf="data.loggedIn()" style="margin-top:10px;">
-                <!--<comment-section></comment-section>-->
-               <h6>Add comment below</h6>
-               <div class="example-container">
-                   <form [formGroup]='commentForm' (ngSubmit)="onSubmit(blog._id)"> 
-                        <input matInput placeholder="Comment" formControlName="comment" name="comment">
-                        <button mat-button>Add comment</button>
-                   </form>
-               </div>
-           </div>
-        <div>
-                <mat-list>
-                    <div *ngFor="let thought of blog.thoughts | slice:0:5; let i=index">
-                        <mat-list-item>
-                            <div class="details">{{thought.owner | uppercase}}<br/>
-                                <span>{{thought.dateofth | date}}</span><br/>
-                            </div> 
-                            <div class="comment">
-                                {{thought.text}}
-                                <div class="delete_option" *ngIf="(thought.owner)=='brian okuku'">
-                                    <button (click)="deleteComment(blog._id, i, thought.text, )" mat-button>Delete comment</button>
-                                </div>
-                            </div>
-                        </mat-list-item>
-                        <mat-divider></mat-divider>
-                    </div>
-                </mat-list> 
-             
-        </div>
-    </mat-card>
-   
+            <p *ngIf="blog.total" class="align-right">Rating : {{blog.total}} Stars</p>
+            <button matButton (click)="showMore(blog)">More</button>
+            <hr>
+           </mat-card>
+                <mat-card class="comment" *ngFor="let thought of blog.thoughts | slice:0:3" >
+                <strong>Thought given by {{thought.owner}} on {{thought.dateofth | date}}</strong><br>
+                <em>{{thought.text}}</em>
+            </mat-card>   
+     </mat-card>
+        

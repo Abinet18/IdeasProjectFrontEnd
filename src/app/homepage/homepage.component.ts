@@ -6,6 +6,7 @@ import { FormGroup,FormControl, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 
 import {MatTableDataSource} from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'homepage',
@@ -15,13 +16,11 @@ import {MatTableDataSource} from '@angular/material';
 
 export class HomepageComponent implements OnInit {
   blogPosts;
-  commentForm:FormGroup;
+  
   
 
-  constructor(private fb:FormBuilder, private data:DbService) {
-    this.commentForm=fb.group({
-      'comment':['',Validators.required],
-    });
+  constructor(private fb:FormBuilder, private data:DbService,private router:Router) {
+    
    }
 
   getAllIdeas(){
@@ -41,17 +40,24 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit() {
+   
     this.getApprovedIdeas();
   }
   
-  onSubmit(theId){
-    let theComment={comment: this.commentForm.controls.comment.value,
-      ideaId: theId,
-      ownerUsername:this.data.getUser() };
+  // onSubmit(theId){
+  //   let theComment={comment: this.commentForm.controls.comment.value,
+  //     ideaId: theId,
+  //     ownerUsername:this.data.getUser() };
     
-    this.data.addComment(theComment).subscribe(
-      (data)=>{/*console.log(data);*/});
+  //   this.data.addComment(theComment).subscribe(
+  //     (data)=>{/*console.log(data);*/});
 
+  // }
+  showMore(idea)
+  {
+    this.data.selectedIdea=idea;
+    this.data.storeIdeaId(idea._id);
+    this.router.navigate(['/selectedIdea']);
   }
 
   deleteComment(theId, indexNo, theText){

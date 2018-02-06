@@ -1,9 +1,8 @@
 <div class={{data.messageClass}} *ngIf="data.message"><p>{{data.message}}</p></div>
-
+<div class={{actionClass}} *ngIf="action">{{action}} successful</div>
 <mat-card *ngFor="let blog of blogPosts">
-            <h2>{{blog.title}}</h2>
-            <h3>{{blog.type}}</h3>
-            <h3>Posted by {{blog.owner}}</h3>
+    <strong style="font-size:20px">{{blog.title}}</strong>({{blog.type}})
+    <br><em>Posted by {{blog.owner}} on {{blog.dateCreated | date}} </em> 
 <mat-card style="background-color:antiquewhite">
             <p>
                 {{blog.idea}}

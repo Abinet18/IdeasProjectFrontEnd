@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
       'password':['',Validators.minLength(6)],
       'confirmpassword':['',Validators.compose([Validators.minLength(6),this.confirmValidator])]
     });
+    this.regForm.controls.password.valueChanges.subscribe(()=>{this.regForm.controls.confirmpassword.updateValueAndValidity();});
   }
 
   ngOnInit() {
@@ -32,7 +33,6 @@ export class RegisterComponent implements OnInit {
     const parent=formControl._parent;
     if(parent)
     {
-    parent.get('password').valueChanges.subscribe(()=>{parent.get('confirmpassword').updateValueAndValidity();});
     console.log(parent.get('password').value==parent.get('confirmpassword').value);
     if(parent.get('password').value==parent.get('confirmpassword').value) return null;    
     }
