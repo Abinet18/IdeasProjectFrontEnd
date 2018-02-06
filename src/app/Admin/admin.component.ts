@@ -10,14 +10,15 @@ import { MatTableDataSource } from '@angular/material';
 
 
 export class AdminComponent implements OnInit {
-
+   private actionClass;
+   private action=null;
    blogPosts;
 
   constructor(private data:DbService) { }
 
    getUnApprovedIdeas(){
-    this.data.getUnApprovedIdeas().subscribe( data => {
-      this.blogPosts = data;
+    this.data.getUnApprovedIdeas().subscribe( res => {
+      this.blogPosts = res;
       console.log(this.blogPosts);
     });    
   }
@@ -29,8 +30,11 @@ export class AdminComponent implements OnInit {
   Approve(ideaId)
   {
     console.log(ideaId);
-    this.data.approve(ideaId).subscribe( data => {
+    this.data.approve(ideaId).subscribe( res => {
      console.log("Approved");
+     this.actionClass="alert alert-info";
+     this.action="Approval";
+     this.getUnApprovedIdeas();
     });    
   }
   Delete(ideaId)
@@ -38,6 +42,9 @@ export class AdminComponent implements OnInit {
     console.log(ideaId);
     this.data.delete(ideaId).subscribe( data => {
     console.log("Deleted");
+    this.actionClass="alert alert-warning";
+    this.action="Deletion";
+    this.getUnApprovedIdeas();
   });
 
 }

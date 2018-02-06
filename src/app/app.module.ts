@@ -27,6 +27,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { IdeaComponent } from './idea/idea.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ThanksComponent } from './thanks/thanks.component';
+import { SelectedIdeaComponent } from './selected-idea/selected-idea.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ThanksComponent } from './thanks/thanks.component';
     IdeaComponent,
     WelcomeComponent,
     ThanksComponent,
+    SelectedIdeaComponent,
   ],
   imports: [
     BrowserModule,

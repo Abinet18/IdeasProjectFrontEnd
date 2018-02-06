@@ -1,0 +1,26 @@
+<div class={{data.messageClass}} *ngIf="data.message"><p>{{data.message}}</p></div>
+<mat-card >
+            <strong style="font-size:20px">{{idea.title}}</strong>({{idea.type}})
+            <br><em>Posted by {{idea.owner}} on {{idea.dateCreated | date}} </em> 
+            <mat-card class="idea">
+            <p>
+                {{idea.idea}}
+            </p>            
+            <p *ngIf="idea.total" class="align-right">Rating : {{idea.total}} Stars</p>
+            <form class="align-right" *ngIf="data.loggedIn()" [formGroup]="ratingForm" (ngSubmit)="onRating(idea._id)">
+            <mat-radio-group formControlName="rating">
+            <mat-radio-button  *ngFor="let i of stars" name="rating" value={{i}}>{{i}}&nbsp;&nbsp;&nbsp;&nbsp;</mat-radio-button>
+            </mat-radio-group>
+            <button type="submit" matButton>Rate</button>
+            </form>
+          <hr>
+          <form *ngIf="data.loggedIn()" [formGroup]='commentForm' (ngSubmit)="onSubmit(idea._id)"> 
+              <mat-form-field><textarea rows=4 matInput placeholder="Comment" formControlName="comment" name="comment"></textarea></mat-form-field>
+              <button type="submit" matButton>Add comment</button>
+          </form>
+    </mat-card>
+      <mat-card class="comment" *ngFor="let thought of idea.thoughts | slice:0:5" >
+      <strong>Thought given by {{thought.owner}} on {{thought.dateofth | date}}</strong><br>
+      <em>{{thought.text}}</em>
+  </mat-card>   
+</mat-card>

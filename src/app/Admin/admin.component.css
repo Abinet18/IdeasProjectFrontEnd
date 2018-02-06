@@ -1,22 +1,9 @@
-.example-container {
-    display: flex;
-    flex-direction: column;
-    max-height: 500px;
-    min-width: 300px;
-  }
-  
-  .mat-table {
-    overflow: auto;
-    max-height: 500px;
-  }
-
-  .button1 {
-    background-color: #f44336;
-    color:#fff;
-  }
-
-  .button2 {
-    background-color: #4CAF50;
-    color: #ffffff;
-    border-color: #4CAF50;
-  }
+mat-form-field
+{
+  display:block;
+}
+mat-card
+{
+  background-color: rgba(255, 255, 255, 0.932);
+  margin-top:15px;
+}
