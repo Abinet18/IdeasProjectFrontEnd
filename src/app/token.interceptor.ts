@@ -17,7 +17,8 @@ export class TokenInterceptor implements HttpInterceptor {
     request = request.clone({
       setHeaders: {
         'Content-Type': 'application/json', // Format set to JSON
-        'authorization': localStorage.getItem('token')// Attach token
+        'authorization': localStorage.getItem('token')
+        // Attach token
       }
     });
     }

@@ -1,6 +1,4 @@
-<div class="wrapper">
-    <h2>Login</h2>
-    <div class="example-container">
+<mat-card>
         <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
         <mat-form-field>
                 <input matInput placeholder="User Name" formControlName="username" name="username" >
@@ -11,7 +9,6 @@
                 <mat-error *ngIf="!loginForm.controls.password.valid">Invalid password</mat-error>
         </mat-form-field>
         <mat-error *ngIf="message">{{message}}</mat-error>
-         <button mat-button>Log in</button>
+         <button matButton>Log in</button>
         </form>
-      </div>
-</div>
+</mat-card>

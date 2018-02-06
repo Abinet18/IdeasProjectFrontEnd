@@ -1,0 +1,14 @@
+
+<mat-card *ngFor="let blog of blogPosts">
+        <h2>{{blog.title}}</h2>
+        <h3>{{blog.type}}</h3>
+        <h3>Posted by {{blog.owner}}</h3>
+<mat-card style="background-color:antiquewhite">
+        <p>
+            {{blog.idea}}
+        </p>
+        
+        <p>Rating : {{blog.total}} Stars</p>
+</mat-card>
+        
+</mat-card>
