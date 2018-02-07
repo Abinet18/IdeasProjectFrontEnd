@@ -17,7 +17,7 @@ canActivate(
   if (this.data.isAdmin()) {
     return true; // Return true: User is allowed to view route
   } else {
-    this.router.navigate(['/notauthorized']); // Return error and route to login page
+    this.router.navigate(['/notauthorized']); // Return error and route to notauthorized page
     return false; // Return false: user not authorized to view page
   }
 }
