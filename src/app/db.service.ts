@@ -10,7 +10,7 @@ export class DbService {
   username;
   message:string;
   messageClass:string;
-  private base_url:string="http://floating-taiga-43125.herokuapp.com/";
+  private base_url:string="https://floating-taiga-43125.herokuapp.com/";
   redirectUrl:string;
   selectedIdea;
   constructor(private http:HttpClient) {}
