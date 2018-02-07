@@ -27,6 +27,8 @@ import { ThanksComponent } from './thanks/thanks.component';
 import { SelectedIdeaComponent } from './selected-idea/selected-idea.component';
 import { MostdiscussedComponent } from './mostdiscussed/mostdiscussed.component';
 import { YourideasComponent } from './yourideas/yourideas.component';
+import { NotauthorizedComponent } from './notauthorized/notauthorized.component';
+import { AdminGuard } from './guards/admin.guard';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { YourideasComponent } from './yourideas/yourideas.component';
     SelectedIdeaComponent,
     MostdiscussedComponent,
     YourideasComponent,
+    NotauthorizedComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,10 +55,9 @@ import { YourideasComponent } from './yourideas/yourideas.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StarRatingModule.forRoot(),
     myRoutes
   ],
-  providers: [DbService, AuthGuard,[{
+  providers: [DbService, AuthGuard,AdminGuard,[{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true

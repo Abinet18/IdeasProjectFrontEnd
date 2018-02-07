@@ -13,6 +13,8 @@ import { ThanksComponent } from './thanks/thanks.component';
 import { SelectedIdeaComponent } from './selected-idea/selected-idea.component';
 import { MostdiscussedComponent } from './mostdiscussed/mostdiscussed.component';
 import { YourideasComponent } from './yourideas/yourideas.component';
+import { NotauthorizedComponent } from './notauthorized/notauthorized.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const MY_ROUTES: Routes = [
 
@@ -25,8 +27,8 @@ const MY_ROUTES: Routes = [
     {path:'mostdiscussed',component:MostdiscussedComponent}, 
     {path:'yourideas',component:YourideasComponent}, 
     {path: 'register', component: RegisterComponent},
-    {path: 'admin', component: AdminComponent,canActivate:[AuthGuard]},
-    {path: 'notfound', component: NotfoundComponent},
+    {path: 'admin', component: AdminComponent,canActivate:[AuthGuard,AdminGuard]},
+    {path: 'notauthorized', component: NotauthorizedComponent},
     {path : 'idea', component:IdeaComponent,canActivate:[AuthGuard]},
     {path: '**', redirectTo: '/' },
 ];
