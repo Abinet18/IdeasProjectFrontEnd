@@ -1,5 +1,4 @@
 import {RouterModule, Routes} from '@angular/router';
-
 import {HomepageComponent} from './homepage/homepage.component';
 import {MostPopularComponent} from './MostPopular/popular.component';
 import { NotfoundComponent } from './notfound/notfound.component';
@@ -16,8 +15,10 @@ import { YourideasComponent } from './yourideas/yourideas.component';
 import { NotauthorizedComponent } from './notauthorized/notauthorized.component';
 import { AdminGuard } from './guards/admin.guard';
 
+//@Abinet
+//List of routes in the front end
+//Authentication Guard for routes that require login
 const MY_ROUTES: Routes = [
-
     {path: '', component: HomepageComponent},
     {path: 'popular', component: MostPopularComponent},
     {path: 'login', component: LoginComponent},
