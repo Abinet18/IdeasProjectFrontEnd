@@ -15,13 +15,11 @@ import { MostPopularComponent } from './MostPopular/popular.component';
 import { LoginComponent } from './Login/login.component';
 import { DbService } from './db.service';
 import { myRoutes } from './app.routes';
-import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './Register/register.component';
 import { AdminComponent } from './Admin/admin.component';
 
 import { AuthGuard } from './guards/auth.guard';
 
-import { MyCanActivateGuard } from "./profile/mycanactivate.guard";
 import { NotfoundComponent } from './notfound/notfound.component';
 import { IdeaComponent } from './idea/idea.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -35,7 +33,6 @@ import { YourideasComponent } from './yourideas/yourideas.component';
     AppComponent,
     HomepageComponent,
     MostPopularComponent,
-    ProfileComponent,
     NotfoundComponent,
     LoginComponent,
     RegisterComponent,
