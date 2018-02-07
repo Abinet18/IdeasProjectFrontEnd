@@ -12,11 +12,11 @@ import { MatTableDataSource } from '@angular/material';
 export class AdminComponent implements OnInit {
    public actionClass;
    public action=null;
-   blogPosts;
-   theUsers;
+   blogPosts; //The ideas array
+   theUsers; //The users array
 
   constructor(public data:DbService) { }
-
+//Gets ideas that have not been approved yet
    getUnApprovedIdeas(){
     this.data.getUnApprovedIdeas().subscribe( res => {
       this.blogPosts = res;
@@ -24,6 +24,7 @@ export class AdminComponent implements OnInit {
     });    
   }
 
+  //Gets the unapproved users of the site that are not admins
   getUnApprovedUsers(){
     this.data.getUnApprovedUsers().subscribe( data => {
       this.theUsers = data;
@@ -31,11 +32,13 @@ export class AdminComponent implements OnInit {
     });    
   }
 
+  //Runs the following methods on component initailisation
   ngOnInit() {
     this.getUnApprovedIdeas();
     this.getUnApprovedUsers();
   } 
 
+  //Approves an idea
   Approve(ideaId)
   {
     console.log(ideaId);
@@ -46,6 +49,7 @@ export class AdminComponent implements OnInit {
      this.getUnApprovedIdeas();
     });    
   }
+  //Deletes an idea 
   Delete(ideaId)
   {
     console.log(ideaId);
@@ -58,6 +62,7 @@ export class AdminComponent implements OnInit {
 
 }
 
+  //Makes a user an administrator
 makeAdmin(theUser)
   {
     this.data.makeAdmin(theUser).subscribe( res => {
