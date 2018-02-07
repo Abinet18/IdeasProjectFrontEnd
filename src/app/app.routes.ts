@@ -2,8 +2,6 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {HomepageComponent} from './homepage/homepage.component';
 import {MostPopularComponent} from './MostPopular/popular.component';
-import {ProfileComponent} from './profile/profile.component';
-import { MyCanActivateGuard } from "./profile/mycanactivate.guard";
 import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginComponent } from './Login/login.component';
 import { RegisterComponent } from './Register/register.component';
