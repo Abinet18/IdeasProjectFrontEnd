@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class IdeaComponent implements OnInit {
 
   ideaForm:FormGroup;
-  constructor(private fb:FormBuilder, private data:DbService,private router:Router) { 
+  constructor(private fb:FormBuilder, public data:DbService,private router:Router) { 
     this.ideaForm=fb.group({
       'title':['',Validators.required],
       'type':['',Validators.required],

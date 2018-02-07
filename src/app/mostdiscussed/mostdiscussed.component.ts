@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MostdiscussedComponent implements OnInit {
   blogPosts;
-  constructor(private data:DbService,private router:Router) { }
+  constructor(public data:DbService,private router:Router) { }
 
 
  ngOnInit() {

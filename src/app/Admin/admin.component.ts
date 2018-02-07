@@ -10,12 +10,12 @@ import { MatTableDataSource } from '@angular/material';
 
 
 export class AdminComponent implements OnInit {
-   private actionClass;
-   private action=null;
+   public actionClass;
+   public action=null;
    blogPosts;
    theUsers;
 
-  constructor(private data:DbService) { }
+  constructor(public data:DbService) { }
 
    getUnApprovedIdeas(){
     this.data.getUnApprovedIdeas().subscribe( res => {
