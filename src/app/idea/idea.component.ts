@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class IdeaComponent implements OnInit {
 
+  //The idea form initialised and created. It contains validation
   ideaForm:FormGroup;
   constructor(private fb:FormBuilder, public data:DbService,private router:Router) { 
     this.ideaForm=fb.group({
@@ -27,16 +28,21 @@ export class IdeaComponent implements OnInit {
     );*/
   }
 
+  //Method invoked when the form is submitted
   onSubmit()
   {
+    //Created the idea entity to post
     let theIdea={title:this.ideaForm.controls.title.value, 
                 type:this.ideaForm.controls.type.value,
                 idea:this.ideaForm.controls.idea.value,
                 owner:this.data.username
               };
     console.log(theIdea);
+    
+    //Called on the addIdea service inside the data service to be used to make the post
     this.data.addIdea(theIdea).subscribe(
       (res)=>{
+        //Navigates to the thanks route on success
          console.log(res);
          this.router.navigate(['/thanks']);
       });
