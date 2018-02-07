@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   
+  //Data driven form with validation constraints
   regForm:FormGroup;
   constructor(private fb:FormBuilder,public data:DbService,private router:Router) { 
     this.regForm=fb.group({
@@ -20,6 +21,7 @@ export class RegisterComponent implements OnInit {
       'password':['',Validators.minLength(6)],
       'confirmpassword':['',Validators.compose([Validators.minLength(6),this.confirmValidator])]
     });
+    //Passwords match custom validation
     this.regForm.controls.password.valueChanges.subscribe(()=>{this.regForm.controls.confirmpassword.updateValueAndValidity();});
   }
 
@@ -27,6 +29,8 @@ export class RegisterComponent implements OnInit {
     
    
   }
+  
+  //Custom Validation method
   confirmValidator(formControl)
   {
    // console.log(formControl._parent)    
@@ -38,10 +42,14 @@ export class RegisterComponent implements OnInit {
     }
     return {v:1}
   }
+  
+  //Function run when the form is submitted
   onSubmit()
   {
+    //Create the object to pass as the body/entity in the post request
     let user={username:this.regForm.controls.username.value,email:this.regForm.controls.email.value,password:this.regForm.controls.password.value};
     
+    //Used the addUser service provided by the data service class to make a post
     this.data.addUser(user).subscribe(
       (res)=>{
         console.log(res);
