@@ -22,7 +22,7 @@ export class SelectedIdeaComponent implements OnInit {
   feedback2;
   img;
   
-  constructor(private data:DbService,fb:FormBuilder) { 
+  constructor(public data:DbService,fb:FormBuilder) { 
 
     this.ratingForm=fb.group(
       {

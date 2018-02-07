@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class YourideasComponent implements OnInit {
 
   blogPosts;
-  constructor(private data:DbService,private router:Router) { }
+  constructor(public data:DbService,private router:Router) { }
 
 
  ngOnInit() {

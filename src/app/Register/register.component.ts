@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   
   regForm:FormGroup;
-  constructor(private fb:FormBuilder,private data:DbService,private router:Router) { 
+  constructor(private fb:FormBuilder,public data:DbService,private router:Router) { 
     this.regForm=fb.group({
       'username':['',Validators.required],
       'email':['',Validators.required],

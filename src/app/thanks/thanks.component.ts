@@ -8,7 +8,7 @@ import { DbService } from '../db.service';
 })
 export class ThanksComponent implements OnInit {
 
-  constructor(private data:DbService) { }
+  constructor(public data:DbService) { }
 
   ngOnInit() {
   }
