@@ -54,8 +54,9 @@ export class SelectedIdeaComponent implements OnInit {
     }   
     }
   
-
+//Used to submit a comment
   onSubmit(theId){
+    //Made the comment entity to send as a post
     let theComment={comment: this.commentForm.controls.comment.value,
       ideaId: theId,
       ownerUsername:this.data.getUser() };
@@ -69,13 +70,15 @@ export class SelectedIdeaComponent implements OnInit {
           return false;
         } 
     }
-
+  
+    //Validation to make sure that the comment is not empty
     if(this.commentForm.controls.comment.value==''){
       console.log("Empty");
       this.feedback2 = 1;
       return false;
     }
 
+    //Makes use of the addComment service in data.service
     this.data.addComment(theComment).subscribe(
       (data)=>{//console.log(data);
         this.feedback = 0;
@@ -85,8 +88,11 @@ export class SelectedIdeaComponent implements OnInit {
  
 
   }
+  
+  //Method used to add a rating to the idea 
   onRating(theId)
   {
+    //Created the rating entity to post
     let rating=
     {
       rater:this.data.getUser(),
@@ -95,6 +101,8 @@ export class SelectedIdeaComponent implements OnInit {
     };
     console.log(theId);
     console.log(rating);
+    
+    //Made use of the addrating method in the data service to post a rating 
     this.data.addRating(theId,rating).subscribe(
       (res)=>{
         console.log(res);
@@ -102,6 +110,8 @@ export class SelectedIdeaComponent implements OnInit {
       }
     )
   }
+ 
+ //Refresh the component by calling using the get on the data service method getIdea
  reload()
  {
    let id=this.data.getIdeaId();
@@ -113,6 +123,7 @@ export class SelectedIdeaComponent implements OnInit {
    });
  }
 
+  //Deletes the comment
  deleteComment(theId, commmentOwner, theText, theDate)
  {
   let theCommentToDelete={ideaId: theId, owner: commmentOwner,
