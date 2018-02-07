@@ -9,11 +9,13 @@ import { Router } from '@angular/router';
 })
 export class MostdiscussedComponent implements OnInit {
   blogPosts;
+  home;
   constructor(public data:DbService,private router:Router) { }
 
-
+  
  ngOnInit() {
    this.getMostDiscussedIdeas();
+   this.home=false;
  }
  showMore(idea)
  {

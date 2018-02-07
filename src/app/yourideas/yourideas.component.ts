@@ -10,11 +10,13 @@ import { Router } from '@angular/router';
 export class YourideasComponent implements OnInit {
 
   blogPosts;
+  home;
   constructor(public data:DbService,private router:Router) { }
 
 
  ngOnInit() {
    this.getYourIdeas();
+   this.home=false;
  }
  showMore(idea)
  {

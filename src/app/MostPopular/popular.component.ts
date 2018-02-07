@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class MostPopularComponent implements OnInit {
 
   blogPosts;
-
+  home;
   constructor(public data:DbService,private router:Router) { }
 
    getPopularIdeas()
@@ -23,6 +23,7 @@ export class MostPopularComponent implements OnInit {
    }
   ngOnInit() {
     this.getPopularIdeas();
+    this.home=false;
   }
   showMore(idea)
   {
