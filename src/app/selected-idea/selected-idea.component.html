@@ -1,8 +1,20 @@
 <div class={{data.messageClass}} *ngIf="data.message"><p>{{data.message}}</p></div>
 
 <mat-card >
+        <div style="display:block;padding:10px;float:right;" *ngIf="idea.type=='Software'">
+                <img style="width:170px;" src="http://www.newwaytech.vn/upload/images/home/1471493413m3.png"/>
+            </div>
+
+            <div style="display:block;padding:10px;float:right;" *ngIf="idea.type=='Business'">
+                <img style="width:170px;" src="https://www.forumforthefuture.org/sites/default/files/images/FFTF-sustainable-business_06.png"/>
+            </div>
+
+            <div style="display:block;padding:10px;float:right;" *ngIf="idea.type=='Life related'">
+                <img style="width:150px;" src="http://www.clker.com/cliparts/a/y/U/w/F/N/tree-md.png"/>
+            </div>
             <strong style="font-size:20px">{{idea.title}}</strong>({{idea.type}})
-            <br><em>Posted by {{idea.owner}} on {{idea.dateCreated | date}} </em> 
+            <br><em>Posted by {{idea.owner}} on {{idea.dateCreated | date}} </em>        
+            <br/><br/><br/><br/>
             <mat-card class="idea">
             <p>
                 {{idea.idea}}

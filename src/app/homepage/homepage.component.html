@@ -1,5 +1,4 @@
         <div class={{data.messageClass}} *ngIf="data.message"><p>{{data.message}}</p></div>
-
         <mat-card *ngIf="home">
             <form [formGroup]="searchForm" (ngSubmit)="search()">
                 <mat-form-field><mat-select  placeholder="Search Category" formControlName="type">
@@ -18,9 +17,23 @@
             </form>
         </mat-card>
           <mat-card *ngFor="let blog of blogPosts">
-            <strong style="font-size:20px">{{blog.title}}</strong>({{blog.type}})
+
+            <div style="display:block;padding:10px;float:right;" *ngIf="blog.type=='Software'">
+                <img style="width:170px;" src="http://www.newwaytech.vn/upload/images/home/1471493413m3.png"/>
+            </div>
+
+            <div style="display:block;padding:10px;float:right;" *ngIf="blog.type=='Business'">
+                <img style="width:170px;" src="https://www.forumforthefuture.org/sites/default/files/images/FFTF-sustainable-business_06.png"/>
+            </div>
+
+            <div style="display:block;padding:10px;float:right;" *ngIf="blog.type=='Life related'">
+                <img style="width:150px;" src="http://www.clker.com/cliparts/a/y/U/w/F/N/tree-md.png"/>
+            </div>
+                        
+            <strong style="font-size:20px;">{{blog.title}}</strong>({{blog.type}})
             <br><em>Posted by {{blog.owner}} on {{blog.dateCreated | date}} </em> 
-           <mat-card class="idea">
+            <br/><br/><br/><br/><br/>
+            <mat-card style="display:block;" class="idea">
             <p>
                 {{blog.idea}}
             </p>
