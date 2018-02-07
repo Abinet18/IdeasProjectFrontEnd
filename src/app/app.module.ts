@@ -58,7 +58,7 @@ import { YourideasComponent } from './yourideas/yourideas.component';
     StarRatingModule.forRoot(),
     myRoutes
   ],
-  providers: [DbService, AuthGuard,, [{
+  providers: [DbService, AuthGuard,[{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true

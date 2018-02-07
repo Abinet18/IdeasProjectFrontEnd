@@ -10,22 +10,22 @@ export class DbService {
   username;
   message:string;
   messageClass:string;
-  private this.base_url:string="http://floating-taiga-43125.herokuapp.com/";
+  private base_url:string="http://floating-taiga-43125.herokuapp.com/";
   redirectUrl:string;
   selectedIdea;
   constructor(private http:HttpClient) {}
   
   addComment(comment):Observable<any>
   {
-   return this.http.post(this.this.base_url+'idea/comment',comment);
+   return this.http.post(this.base_url+'idea/comment',comment);
   }
   addRating(ideaId,rating):Observable<any>
   {
-   return this.http.post(this.this.base_url+'idea/rating/'+ideaId,rating);
+   return this.http.post(this.base_url+'idea/rating/'+ideaId,rating);
   }
   addUser(user):Observable<any>
   {
-   return this.http.post(this.this.base_url+'users/add',user);
+   return this.http.post(this.base_url+'users/add',user);
   }
   storeUserData(token,user)
   {
@@ -44,7 +44,7 @@ export class DbService {
     return localStorage.getItem("idea_id");
   }
   login(user):Observable<any> {
-    return this.http.post( this.this.base_url+'users/login', user);
+    return this.http.post( this.base_url+'users/login', user);
   }
 
   // Function to check if user is logged in
@@ -113,7 +113,7 @@ export class DbService {
   deleteComment(commentDetails):Observable<any>
   {
   console.log(commentDetails);
-   return this.http.put(this.this.base_url+'idea/deletecomment',commentDetails);
+   return this.http.put(this.base_url+'idea/deletecomment',commentDetails);
   }
   getPopularIdeas():Observable<any>{
     
