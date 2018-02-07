@@ -53,6 +53,7 @@ export class RegisterComponent implements OnInit {
     this.data.addUser(user).subscribe(
       (res)=>{
         console.log(res);
+        //Route to the welcome page on success
         this.data.username=user.username;
         this.router.navigate(['/welcome']);
       }
