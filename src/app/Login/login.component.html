@@ -9,6 +9,6 @@
                 <mat-error *ngIf="!loginForm.controls.password.valid">Invalid password</mat-error>
         </mat-form-field>
         <mat-error *ngIf="message">{{message}}</mat-error>
-         <button matButton>Log in</button>
+         <button matButton [disabled]="!loginForm.valid">Log in</button>
         </form>
 </mat-card>
