@@ -13,11 +13,11 @@ import { Router } from '@angular/router';
     templateUrl: './homepage.component.html',
   styleUrls: ['homepage.component.css']
 })
-
+//@Abinet
 export class HomepageComponent implements OnInit {
-  blogPosts;
-  home;
-  searchForm;
+  blogPosts;//Array to hold list of ideas
+  home:Boolean;     //variable to identify this page as home (since this component shared html with other components)
+  searchForm:FormGroup; //Form to search for ideas
   
   
 
@@ -31,13 +31,7 @@ export class HomepageComponent implements OnInit {
     
    }
 
-  getAllIdeas(){
-    this.data.getAllIdeas().subscribe( data => {
-      this.blogPosts = data;
-      console.log(this.blogPosts);
-    });
-    
-  }
+  //get the approved ideas to display on page
   getApprovedIdeas(){
     this.data.getApprovedIdeas().subscribe( data => {
       this.blogPosts = data;
@@ -48,12 +42,13 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+   //call method on initialization
     this.getApprovedIdeas();
   }
-  
+ //collect the input and send request to search for ideas
   search()
   {
+    //set inputs to 0 if undefined(null)
       let type=this.searchForm.controls.type.value;
       type=type?type:0;
       let title=this.searchForm.controls.title.value;
@@ -66,6 +61,8 @@ export class HomepageComponent implements OnInit {
         }
       )
   }
+  //show details of a selected idea, set a shared variable in the service to hold the selected idea
+  //and redirect to the selectedIdea component
   showMore(idea)
   {
     this.data.selectedIdea=idea;
